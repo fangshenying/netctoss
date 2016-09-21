@@ -1,0 +1,20 @@
+1.导入jar包
+ - javaee：导入tomcat中的包
+ - jstl：在maven中搜jstl，下载1.2
+ - jdbc：在maven中搜ojdbc，下载10.2.0.4.0
+ - dbcp：在maven中搜commons-dbcp，下载1.4
+ 
+ 2.NETCTOSS
+ Net: 网络
+ C: China
+ T: Telecom 电信
+ O: Operation 运营
+ S: Support 支持
+ S: System 系统
+ 中国电信运营支持系统-网络版
+ 
+ 3.开发思路
+ 1)根据操作分析此功能包含几个请求
+ 2)每个请求分析执行的过程
+ 3)逐个请求开发
+ 

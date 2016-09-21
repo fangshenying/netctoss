@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>netctoss</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>main</servlet-name>
+  	<servlet-class>web.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>main</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 让tomcat统一处理项目中的异常。 -->
+  <!-- 1.在tomcat捕获到某类型异常时，自动转发到某错误页面。 -->
+  <error-page>
+  	<!-- 本项目只有一种异常，这里捕获所有异常。 -->
+	<exception-type>java.lang.Exception</exception-type>
+	<!-- 自动补上项目名 -->
+	<location>/WEB-INF/error.jsp</location>  
+  </error-page>
+  <!-- jsp的路径写成绝对路径，因为无法确定哪个请求中报了错。另外tomcat
+  	   知道要转发的jsp一定在当前项目内，它会自动在路径前追加项目名/netctoss，
+  	   因此此处路径一定别写项目名，否则会重复。 -->
+  <!-- 2.在tomcat捕获到某编号异常时，自动转发到某错误页面。 -->
+  <!--  
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/WEB-INF/error.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/error.jsp</location>
+  </error-page>
+  -->
+  
+  <!-- 登录检查过滤器 -->
+  <filter>
+  	<filter-name>login</filter-name>
+  	<filter-class>web.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
