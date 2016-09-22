@@ -43,7 +43,7 @@ public class LoginFilter implements Filter {
 			//根据帐号判断是否已登录
 			if(adminCode == null) {
 				//没登录，重定向到toLogin.do
-				response.sendRedirect("/netctoss/toLogin.do");;
+				response.sendRedirect("/netctoss/toLogin.do");
 			} else {
 				//已登录，让请求继续执行
 				chain.doFilter(request, response);
